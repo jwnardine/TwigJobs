@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>The Jobs I've held!</title>
+</head>
+<body>
+    <h1>What jobs have YOU had?</h1>
+    {% if jobs is not empty %}
+    <p>Here are all the jobs I've had:</p>
+    <ul>
+    {% for job in jobs %}
+        <h3>{{ job.getTitle }}</h3>
+        <li>{{ job.getSalary }}</li>
+        <li>{{ job.getDesc }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action='/jobs' method='post'>
+
+        <div class='form-group'>
+          <label for='title'>Enter the job title:</label>
+          <input id='title' name='title' type='text'>
+        </div>
+
+        <div class='form-group'>
+          <label for='salary'>Enter salary:</label>
+          <input id='salary' name='salary' type='text'>
+        </div>
+
+        <div class='form-group'>
+          <label for='desc'>Enter job description:</label>
+          <input id='desc' name='desc' type='text'>
+        </div>
+
+
+        <button type='submit'>Add Place</button>
+    </form>
+
+    <form action='/delete_jobs' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+
+</body>
+</html>
